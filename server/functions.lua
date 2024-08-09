@@ -1,0 +1,144 @@
+-- ---@module "Framework Utils"
+
+-- ---@class Utilities
+-- local Utils = {
+--     framework = CurrentFramework,
+--     garages = nil,
+--     hasExports = hasExports
+-- }
+
+-- ---@param source number
+-- ---@param itemName string
+-- ---@param amount? number
+-- ---@return boolean
+-- function Utils:hasItem(source, itemName, amount)
+--     local playerObj = self:getPlayerObject(source)
+--     if not playerObj then return false end
+
+--     amount = amount or 1
+
+--     if Config.Inventory == "ox" then
+--           local count = exports.ox_inventory:GetItem(source, itemName, nil, true)
+--           return count >= amount
+--     elseif Config.Inventory == "core" then
+--           local playerObj = self:getPlayerObject(source)
+--           local charId = playerObj and self:getCharacterId(playerObj)
+--           if not charId then return false end
+--           local invName = "content-" .. charId
+--           local item = exports['core_inventory']:getItem(invName, itemName)
+--           local count = item and item.amount or 0
+
+--           return count >= amount
+--     elseif Config.Inventory == "qs" then
+--           local count = exports['qs-inventory']:GetItemTotalAmount(source, itemName)
+--           return count >= amount
+--     else
+--           if self.framework == 'qb' then
+--                 local items = playerObj.PlayerData.items
+--                 local count = 0
+--                 for k, v in pairs(items) do
+--                       if itemName == v.name then
+--                             count = count + v.amount
+--                       end
+--                 end
+--                 return count >= amount
+--           elseif self.framework == "qbx" then
+--                 return exports.qbx_core:CanUseItem(itemName)
+--           elseif self.framework == 'esx' then
+--                 return playerObj.getInventoryItem(itemName).count >= amount
+--           end
+--     end
+
+--     return false
+-- end
+
+-- ---@param playerObj table
+-- function Utils:getSourceFromCharacter(playerObj)
+--     if self.framework == 'esx' then
+--           return playerObj.source
+--     elseif self.framework == 'qb' or self.framework == 'qbx' then
+--           return playerObj.PlayerData.source
+--     end
+-- end
+
+-- ---@param playerObj table
+-- ---@return table<string, number> @accounts
+-- function Utils:getPlayerAccounts(playerObj)
+--     if self.framework == 'qb' or self.framework == "qbx" then
+--           local accounts = playerObj.PlayerData.money
+--           return accounts --[[ @as table {[string]:number} ]]
+--     elseif self.framework == 'esx' then
+--           local data = playerObj.getAccounts()
+--           local accounts = {}
+--           for _, a in ipairs(data) do
+--                 accounts[a.name] = a.money
+--           end
+--           return accounts --[[ @as table {[string]:number} ]]
+--     end
+--     return {}
+-- end
+
+-- ---@param playerObj table
+-- ---@return number
+-- function Utils:getAccountMoney(account, playerObj)
+--     if self.framework == 'esx' then
+--           return playerObj.getAccount(account)?.money
+--     elseif self.framework == 'qb' or self.framework == 'qbx' then
+--           return playerObj.PlayerData?.money[account]
+--     end
+--     return 0
+-- end
+
+-- ---@param account string
+-- ---@param amount number
+-- ---@param player table | string | number
+-- function Utils:setAccountMoney(account, amount, player)
+--     player = type(player) ~= "table" and Utils:getPlayerObject(player) or player
+--     if not player then return end
+--     if CurrentFramework == 'qb' or CurrentFramework == 'qbx' then
+--           player.Functions.SetMoney(account, amount)
+--     elseif CurrentFramework == 'esx' then
+--           account = account == 'cash' and 'money' or account 
+--           player.setAccountMoney(account, amount)
+--     end
+-- end
+
+-- ---@param account string
+-- ---@param amount number
+-- ---@param player table | string | number
+-- function Utils:addAccountMoney(account, amount, player)
+--     player = type(player) ~= "table" and Utils:getPlayerObject(player) or player
+--     if not player then return end
+--     if CurrentFramework == 'qb' or CurrentFramework == 'qbx' then
+--           player.Functions.AddMoney(account, amount)
+--     elseif CurrentFramework == 'esx' then
+--           account = account == 'cash' and 'money' or account 
+--           player.addAccountMoney(account, amount)
+--     end
+-- end
+
+-- ---@param account string
+-- ---@param amount number
+-- ---@param player table | string | number
+-- function Utils:removeAccountMoney(account, amount, player)
+--     player = type(player) ~= "table" and Utils:getPlayerObject(player) or player
+--     if not player then return end
+--     if CurrentFramework == 'qb' or CurrentFramework == 'qbx' then
+--           player.Functions.RemoveMoney(account, amount)
+--     elseif CurrentFramework == 'esx' then
+--           account = account == 'cash' and 'money' or account 
+--           player.removeAccountMoney(account, amount)
+--     end
+-- end
+
+-- ---@param item string
+-- ---@param amount number
+-- ---@param info string | table
+-- function Utils:AddItem(item, amount, info)
+--       player = type(player) ~= "table" and Utils:getPlayerObject(player) or player
+--       if not player then return end
+--       if CurrentFramework = 'qb' then
+--             player.Functions.AddItem(item, amount, false, info)
+--       end
+-- end
+-- return Utils
