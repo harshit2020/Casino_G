@@ -1,0 +1,379 @@
+
+.slots {
+    width: calc(5 * 100px + 6 * 20px); /* 30px for small boxes */
+    height: calc(3 * 104px);
+    display: flex;
+    justify-content: space-evenly;
+    background: linear-gradient(45deg, rgb(27, 26, 26) 0%, rgb(7, 7, 7) 100%);
+    border-top: 1px solid rgba(31, 121, 223, 0.6);
+    border-right: 1px solid rgba(31, 121, 223, 0.6);
+    border-left: 1px solid rgba(31, 121, 223, 0.6);
+    border-bottom: 1px solid rgba(31, 121, 223, 0.6);
+    /* box-shadow: -2px 2px 3px rgba(31, 121, 223, 0.6); */
+    overflow: hidden;
+}
+
+.small_icon{
+    width: 140px;
+    height: 140px;
+    background-image: url("images/small_icon.png");
+}
+.reel {
+    margin-top: 6px;
+    margin-left: 5px;
+    margin-right:5px ;
+    position: relative;
+    width: 100px;
+    height: calc(3 * 100px);
+    background-image: url("images/default_strip.png");
+    background-repeat: repeat-y;
+    box-sizing: border-box;
+    z-index: 0;
+    background-color: black;
+}
+
+
+.part {
+    height: 100px; /* Height of one icon */
+    overflow: hidden;
+}
+
+.icon-container {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    background-size: 79px 79px;
+}
+.left-box, .right-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: calc(3 * 79px);
+}
+
+.left-box {
+    position: relative;
+    margin-left: 7px;
+    
+}
+
+.right-box {
+    position: relative;
+    margin-right: 7px;
+}
+
+.small-box{
+    border: 2px solid black; /* Border around each icon */
+    box-sizing: border-box;
+    background-color: beige;
+    /* box-shadow : 0 0 5px 5px green;  */
+    margin-top: 4px;
+}
+.debug {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-family: monospace;
+    font-size: 1.6rem;
+    width: 817px;
+    height: 140px;
+    background-image: url("images/heading.png");
+    display: none;
+}
+
+.debug2 {
+    position: fixed;
+    right: 355px;
+    top: 35%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-family: monospace;
+    font-size: 1.6rem;
+    width: 170px;
+    height: 389px;
+    background: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    border: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: 100% 100%;
+    /* background: linear-gradient(45deg, rgb(15, 15, 15) 0%, rgb(146, 118, 118) 100%); */
+}
+/* From Uiverse.io by zanina-yassine */ 
+.button {
+    min-width: 120px;
+  
+    position: relative;
+    cursor: pointer;
+  
+    padding: 12px 17px;
+    border: 0;
+    border-radius: 7px;
+  
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    background: radial-gradient(
+      ellipse at bottom,
+      rgba(71, 81, 92, 1) 0%,
+      rgba(11, 21, 30, 1) 45%
+    );
+  
+    color: rgb(255, 255, 255, 0.66);
+    transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+  
+  .button::before {
+    content: "";
+    width: 70%;
+    height: 1px;
+  
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+  
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0.2;
+  
+    transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+  
+  .button:hover {
+    color: rgb(255, 255, 255, 1);
+    transform: scale(1.1) translateY(-3px);
+  }
+  
+  .button:hover::before {
+    opacity: 1;
+  }
+  
+
+.bet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000; /* Adjust as necessary */
+    border-radius: 50%;
+    width: 100px; /* Adjust as necessary */
+    padding: 10px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.bet-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.bet-display span {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+#bet-amount {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    width: 50px;
+    text-align: center;
+    border-bottom: 1px solid #fff; /* Optional: Add border for better visibility */
+}
+
+
+/* animation */
+
+.animate-bg {
+    position: relative;
+    bottom: -100%;
+    width: 100px;
+    height: 300px;
+    animation: bottomToTop 1s forwards;
+}
+@keyframes bottomToTop {
+    to {
+        bottom: 0;
+    }
+}
+
+.twinkle_four {
+    animation: twinkle_four 1s infinite;
+}
+@keyframes twinkle_four { /*purple*/
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgba(193, 117, 255, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(149, 70, 214, 0.8);    
+    }
+}
+
+.twinkle_two { /*orange*/
+    animation: twinkle_two 1s infinite;
+}
+@keyframes twinkle_two {
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgb(255, 161, 53);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(255, 161, 53);
+    }
+}
+
+.twinkle_eight { /*light green*/
+    animation: twinkle_eight 1s infinite;
+}
+@keyframes twinkle_eight {
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgba(159, 228, 0);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(159, 228, 0);
+    }
+}
+
+.twinkle_six {
+    animation: twinkle_six 1s infinite;
+}
+@keyframes twinkle_six { /*red*/
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgb(255, 0, 0);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgb(255, 0, 0);    
+    }
+}
+
+.twinkle_ten { /*dark blue*/
+    animation: twinkle_ten 1s infinite;
+}
+@keyframes twinkle_ten {
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgba(0, 0, 255);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(0, 0, 255);
+    }
+}
+
+.twinkle_one { /*white*/
+    animation: twinkle_one 1s infinite;
+}
+@keyframes twinkle_one { /*white*/
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgba(255, 255, 255);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(255, 255, 255);
+    }
+}
+
+.twinkle_seven { /*pink*/
+    animation: twinkle_seven 1s infinite;
+}
+@keyframes twinkle_seven {
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgba(255, 0, 197);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(255, 0, 197);
+    }
+}
+
+.twinkle_nine { /*cyan*/
+    animation: twinkle_nine 1s infinite;
+}
+@keyframes twinkle_nine {
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgba(0, 255, 255);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(0, 255, 255);
+    }
+}
+
+.twinkle_three { /*yellow*/
+    animation: twinkle_three 1s infinite;
+}
+@keyframes twinkle_three {
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgba(253,255,0);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(253,255,0);
+    }
+}
+
+.twinkle_five { /*forest green*/
+    animation: twinkle_five 1s infinite;
+}
+@keyframes twinkle_five {
+    0%, 100% {
+        box-shadow: 0 0 5px 5px rgba(10,172,0);
+    }
+    50% {
+        box-shadow: 0 0 5px 2px rgba(10,172,0);
+    }
+}
+
+
+.special_symbols_div {
+    position : relative;
+    margin-left: 90px;
+    width: calc(5 * 100px + 6 * 30px);
+    height: 96px;
+    background-repeat: no-repeat;
+    background-image: url("images/bonus_game_symbol.png");
+    visibility: hidden;
+}
+
+.fade-out {
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+
+.fade-in {
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+}
+
+/* animation  end */
+.free_games_div{
+    position : relative;
+    width: calc(5 * 100px + 6 * 30px);
+    height: 49px;
+    background-color: #212121;
+}

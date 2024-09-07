@@ -1,0 +1,50 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Eye of Horus Slot Game</title>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+  </head>
+  <body>
+    <div id="stage" class="perspective-on">
+      <div id="rotate">
+        <div id="ring1" class="ring"></div>
+        <div id="ring2" class="ring"></div>
+        <div id="ring3" class="ring"></div>
+        <div id="ring4" class="ring"></div>
+        <div id="ring5" class="ring"></div>
+      </div>
+      <div>
+        <button class="go">Start Spinning</button>
+      </div>
+      <div id="display">
+        <div id="balance">Balance: $1000</div>
+        <div id="bet">Bet: $10</div>
+        <div id="win">Win: $0</div>
+      </div>
+      <div>
+        <label for="betAmount">Bet Amount:</label>
+        <input type="number" id="betAmount" value="10" min="1" max="1000" />
+        <button id="autoPlay">Autoplay</button>
+        <button id="paytable">Paytable</button>
+      </div>
+      <div id="paytableModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Paytable</h2>
+          <p>A: 10</p>
+          <p>K: 8</p>
+          <p>Q: 6</p>
+          <p>J: 4</p>
+          <p>10: 2</p>
+          <p>9: 1</p>
+          <p>Horus: 20</p>
+          <p>Scatter: 0 (triggers free spins)</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>

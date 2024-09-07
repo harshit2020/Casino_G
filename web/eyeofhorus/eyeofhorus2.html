@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id = "all" style="display: flex; align-items: center; justify-content: center;">
+    <!-- <div class="new-div-left-side" style="background-color: #212121; height: 513px; width: 140px; margin-top: 50px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;margin-top: 10px;">
+        <div class = "small_icon" style="background-color: aquamarine;width: 140px;height: 140px;margin-bottom: 15px;"></div>
+        <div class = "left-side" style = "background-color: #212121; height: 330px;width: 140px; margin-top: 50px; display: flex; flex-direction: column; justify-content: center;align-items: center;justify-content: space-evenly;">
+        </div>
+    </div> -->
+
+<div class="bg">
+    <div class="special_symbols_div" id="special_symbols_div"></div>
+    <div class="slots">
+
+        <!-- Reels -->
+        <div class="reel" id="reel0">
+            <div class="part">
+                <div class="icon-container" id="zero_zero" style="background-position: 0 -0px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="one_zero" style="background-position: 0 -79px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="two_zero" style="background-position: 0 -158px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+        </div>
+        <div class="reel" id="reel1">
+            <div class="part">
+                <div class="icon-container" id="zero_one" style="background-position: 0 -0px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="one_one" style="background-position: 0 -79px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="two_one" style="background-position: 0 -158px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+        </div>
+        <div class="reel" id="reel2">
+            <div class="part">
+                <div class="icon-container" id="zero_two" style="background-position: 0 -0px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="one_two" style="background-position: 0 -79px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="two_two" style="background-position: 0 -158px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+        </div>
+        <div class="reel" id="reel3">
+            <div class="part">
+                <div class="icon-container" id="zero_three" style="background-position: 0 -0px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="one_three" style="background-position: 0 -79px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="two_three" style="background-position: 0 -158px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+        </div>
+        <div class="reel" id="reel4">
+            <div class="part">
+                <div class="icon-container" id="zero_four" style="background-position: 0 -0px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="one_four" style="background-position: 0 -79px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="icon-container" id="two_four" style="background-position: 0 -158px;">
+                    <div class="icon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex;justify-content: center;align-items: center; background-color: #212121;width: calc(5 * 100px + 6 * 20px);height: 90px;">
+        <button class="button" id="start_button" style="margin-right: 50px;" onclick="rollButton()">SPIN</button>
+        <span id="total_won_amount" style="color: azure;font-size: 20px;">Total Won Amount: 0</span>
+    </div>
+    <div class="free_games_div" id="free_games_div" style="display: flex;align-items: center;justify-content: center;width: calc(5 * 100px + 6 * 20px); height: 90px;">
+        <div class="bet-container" style="margin-right: 100px;">
+            <div class="bet-display">
+                <span>BET</span>
+                <input type="text" id="bet-amount" value="2.00">
+            </div>
+        </div>
+        <span id = "free_game_span" style="color: azure;">FREE GAMES: 0 </span>
+    </div>
+</div>
+
+<div id="debug" class="debug"></div>
+<div id="debug2" class="debug2">
+</div>
+</div>
+<script src="script.js"></script>
+<script src ="script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Sliding Background Image Transition</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .image-container {
+            width: 300px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .image-container.fade-out {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .image-container.fade-in {
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container"></div>
+
+    <script>
+        let images = ['url("images/bc_image.jfif")', 'url("images/bc_image.jfif")'];
+        let currentImageIndex = 0;
+        const imageContainer = document.querySelector('.image-container');
+
+        function setImage(index) {
+            imageContainer.style.backgroundImage = images[index];
+        }
+
+        function toggleImage() {
+            imageContainer.classList.remove('fade-in');
+            imageContainer.classList.add('fade-out');
+
+            setTimeout(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                setImage(currentImageIndex);
+                imageContainer.classList.remove('fade-out');
+                imageContainer.classList.add('fade-in');
+            }, 1000); // Match this duration to the CSS transition duration
+        }
+
+        // Initialize with the first image
+        setImage(currentImageIndex);
+
+        // Change image every 3 seconds
+        setInterval(toggleImage, 3000);
+    </script>
+</body>
+</html>
